@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ViralForge (Clout)
 
-## Getting Started
+ViralForge is an AI-powered platform that continuously scans social media for trending hooks and moments, clips them, and generates high-potential posts with viral probability scores.
 
-First, run the development server:
+## Architecture
+
+ViralForge consists of two main parts:
+1. **AI Content Pipeline**: Scans platforms, analyzes content, generates posts, and scores them.
+2. **Web Application**: Provides a dashboard for users to browse their daily feed, pick content, and publish.
+
+## Web Application (Next.js)
+
+### Getting Started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Tech Stack
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS
+- **Database**: SQLite/Turso with Drizzle ORM
+- **Auth**: Auth.js (NextAuth v5)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## AI Content Pipeline (Python)
 
-## Learn More
+### Quick Start
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Run pipeline (simulated data — no API key needed)
+python run_pipeline.py daily-picks --niches tech gaming --count 5
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Modules
+- **Scanner**: Fetches trending video metadata.
+- **Analyzer**: Identifies best hook/peak/CTA moments.
+- **Generator**: Creates captions, hashtags, and thumbnail concepts.
+- **Scorer**: Computes viral probability score (0-100%).
+- **Pipeline**: Orchestrates the flow and outputs Daily Picks.
 
-## Deploy on Vercel
+## Data Contract
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The pipeline and web app communicate via a shared data format. 
+See [DATA_CONTRACT.md](DATA_CONTRACT.md) for specifications.
