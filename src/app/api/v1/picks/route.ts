@@ -56,17 +56,17 @@ export async function GET(request: NextRequest) {
         video: {
           video_id: item.id,
           title: item.title,
-          channel: metadata.platform_display || item.nicheName || "Unknown",
+          channel: metadata.channel || metadata.platform_display || item.nicheName || "Unknown",
           platform: metadata.platform || "youtube",
-          duration_sec: 0,
-          view_count: 0,
-          like_count: 0,
-          comment_count: 0,
+          duration_sec: metadata.duration_sec || 0,
+          view_count: metadata.view_count || 0,
+          like_count: metadata.like_count || 0,
+          comment_count: metadata.comment_count || 0,
           published_at: item.createdAt
             ? new Date(item.createdAt).toISOString()
             : new Date().toISOString(),
           niche: item.nicheSlug || item.nicheId,
-          thumbnail_url: "",
+          thumbnail_url: metadata.thumbnail_url || "",
           description: item.description || "",
           tags: metadata.post?.hashtags || [],
         },
