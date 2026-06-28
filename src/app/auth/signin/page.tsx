@@ -30,22 +30,21 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-64px)] flex-col justify-center py-12 sm:px-6 lg:px-8 bg-background">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-        <h1 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4">Clout</h1>
-        <h2 className="text-3xl font-black tracking-tight text-white">
-          Sign in to your account
+    <div className="flex min-h-[calc(100vh-64px)] flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+          Sign in to Clout
         </h2>
-        <p className="mt-2 text-sm text-text-secondary">
+        <p className="mt-2 text-center text-sm text-gray-600">
           Or sign up by entering your email and any password
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-surface px-4 py-8 shadow-2xl sm:rounded-3xl sm:px-10 border border-white/5">
+        <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10 border">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="email" className="block text-xs font-black text-white uppercase tracking-widest mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Email address
               </label>
               <div className="mt-1">
@@ -56,14 +55,13 @@ export default function SignInPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full rounded-xl border border-white/10 bg-background px-4 py-3 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary sm:text-sm text-white transition-all"
-                  placeholder="name@example.com"
+                  className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm text-black"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-xs font-black text-white uppercase tracking-widest mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 Password
               </label>
               <div className="mt-1">
@@ -74,8 +72,7 @@ export default function SignInPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full rounded-xl border border-white/10 bg-background px-4 py-3 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary sm:text-sm text-white transition-all"
-                  placeholder="••••••••"
+                  className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm text-black"
                 />
               </div>
             </div>
@@ -84,7 +81,7 @@ export default function SignInPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex w-full justify-center rounded-xl bg-primary px-4 py-4 text-sm font-black uppercase tracking-widest text-background shadow-[0_0_20px_rgba(0,209,255,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-indigo-400"
               >
                 {loading ? "Signing in..." : "Sign in"}
               </button>

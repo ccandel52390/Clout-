@@ -3,17 +3,16 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const NICHES = [
-  { id: "n1", name: "Technology", description: "AI, gadgets, software, and future tech.", icon: "🚀" },
-  { id: "n5", name: "Finance", description: "Investing, crypto, and personal finance.", icon: "💰" },
-  { id: "n6", name: "Health & Fitness", description: "Workout tips, nutrition, and mental health.", icon: "💪" },
-  { id: "n2", name: "Business", description: "Entrepreneurship, marketing, and startups.", icon: "📈" },
-  { id: "n3", name: "Lifestyle", description: "Travel, fashion, and home decor.", icon: "✨" },
-  { id: "n4", name: "Comedy", description: "Jokes and humor for your audience.", icon: "😄" },
+  { id: "tech", name: "Technology", description: "AI, gadgets, software, and future tech.", icon: "🚀" },
+  { id: "finance", name: "Finance", description: "Investing, crypto, and personal finance.", icon: "💰" },
+  { id: "health", name: "Health & Fitness", description: "Workout tips, nutrition, and mental health.", icon: "💪" },
+  { id: "business", name: "Business", description: "Entrepreneurship, marketing, and startups.", icon: "📈" },
+  { id: "lifestyle", name: "Lifestyle", description: "Travel, fashion, and home decor.", icon: "✨" },
+  { id: "gaming", name: "Gaming", description: "Latest games, e-sports, and streaming.", icon: "🎮" },
 ];
 
 export default function OnboardingPage() {
   const [selected, setSelected] = useState<string[]>([]);
-  const [isSaving, setIsSaving] = useState(false);
   const router = useRouter();
 
   const toggleNiche = (id: string) => {
@@ -22,27 +21,9 @@ export default function OnboardingPage() {
     );
   };
 
-  const handleComplete = async () => {
-    if (selected.length < 2) return;
-    
-    setIsSaving(true);
-    try {
-      const res = await fetch("/api/v1/user/niches", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nicheIds: selected }),
-      });
-      
-      if (res.ok) {
-        router.push("/feed");
-      } else {
-        console.error("Failed to save niches");
-        setIsSaving(false);
-      }
-    } catch (error) {
-      console.error("Error saving niches:", error);
-      setIsSaving(false);
-    }
+  const handleComplete = () => {
+    // In a real app, save selected niches to the database
+    router.push("/feed");
   };
 
   return (
@@ -89,14 +70,14 @@ export default function OnboardingPage() {
         <div className="mt-12 flex flex-col items-center">
           <button
             onClick={handleComplete}
-            disabled={selected.length < 2 || isSaving}
+            disabled={selected.length < 2}
             className={`w-full sm:w-auto rounded-xl px-12 py-4 text-lg font-black uppercase tracking-widest transition-all ${
-              selected.length < 2 || isSaving
+              selected.length < 2
                 ? "bg-white/10 text-white/30 cursor-not-allowed"
                 : "bg-primary text-background hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(0,209,255,0.3)]"
             }`}
           >
-            {isSaving ? "Saving..." : selected.length < 2 ? `Select ${2 - selected.length} more` : "Unlock My Feed"}
+            {selected.length < 2 ? `Select ${2 - selected.length} more` : "Unlock My Feed"}
           </button>
           <p className="mt-4 text-sm text-text-secondary">
             You can change these later in your dashboard.

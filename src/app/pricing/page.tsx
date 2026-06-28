@@ -60,7 +60,7 @@ export default function PricingPage() {
                   <li key={feature} className="flex items-start">
                     <div className="bg-success/20 p-1 rounded-full shrink-0">
                       <svg className="h-4 w-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
                     <span className="ml-3 text-sm text-text-secondary font-medium">{feature}</span>

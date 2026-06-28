@@ -27,7 +27,7 @@ export default async function Navbar() {
           <div className="flex items-center space-x-4">
             {session ? (
               <>
-                <span className="text-sm text-text-secondary hidden sm:inline">{session.user?.email}</span>
+                <span className="text-sm text-text-secondary">{session.user?.email}</span>
                 <form
                   action={async () => {
                     "use server";

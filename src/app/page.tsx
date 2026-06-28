@@ -37,10 +37,10 @@ export default function Home() {
         </div>
 
         <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-          <div className="flex items-center justify-center font-black text-xl italic tracking-tighter text-white">TIKTOK</div>
-          <div className="flex items-center justify-center font-black text-xl italic tracking-tighter text-white">YOUTUBE</div>
-          <div className="flex items-center justify-center font-black text-xl italic tracking-tighter text-white">INSTAGRAM</div>
-          <div className="flex items-center justify-center font-black text-xl italic tracking-tighter text-white">X / TWITTER</div>
+          <div className="flex items-center justify-center font-black text-xl italic tracking-tighter">TIKTOK</div>
+          <div className="flex items-center justify-center font-black text-xl italic tracking-tighter">YOUTUBE</div>
+          <div className="flex items-center justify-center font-black text-xl italic tracking-tighter">INSTAGRAM</div>
+          <div className="flex items-center justify-center font-black text-xl italic tracking-tighter">X / TWITTER</div>
         </div>
       </div>
     </div>

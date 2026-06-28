@@ -1,98 +1,143 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { auth } from "@/lib/auth";
-import ContentCard from "@/components/ContentCard";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
-export default function FeedPage() {
-  const [picks, setPicks] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [niche, setNiche] = useState("All Niches");
+interface ContentItem {
+  id: string;
+  title: string;
+  description: string;
+  viralScore: number;
+  niche: string;
+  platform: string;
+  thumbnail: string;
+}
 
-  const fetchPicks = async (currentNiche: string) => {
-    setLoading(true);
-    try {
-      const url = currentNiche === "All Niches" 
-        ? "/api/v1/picks" 
-        : `/api/v1/picks?niche=${currentNiche}`;
-      const res = await fetch(url);
-      const json = await res.json();
-      if (json.status === "ok") {
-        setPicks(json.data);
-      }
-    } catch (error) {
-      console.error("Failed to fetch picks", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+const MOCK_PICKS: ContentItem[] = [
+  {
+    id: "1",
+    title: "AI Tools that will change your life in 2026",
+    description: "A deep dive into the latest AI tools that are making waves in the tech community.",
+    viralScore: 94,
+    niche: "Tech",
+    platform: "YouTube",
+    thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    id: "2",
+    title: "Why you should stop saving money (and start investing)",
+    description: "Financial advice for the modern age. How to grow your wealth fast.",
+    viralScore: 82,
+    niche: "Finance",
+    platform: "TikTok",
+    thumbnail: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    id: "3",
+    title: "Top 5 hidden travel gems in Europe",
+    description: "Discover the best places to visit in Europe that are still under the radar.",
+    viralScore: 75,
+    niche: "Travel",
+    platform: "Instagram",
+    thumbnail: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    id: "4",
+    title: "How to build a $10k/mo side hustle",
+    description: "Step-by-step guide to starting a profitable online business.",
+    viralScore: 48,
+    niche: "Business",
+    platform: "YouTube",
+    thumbnail: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=800",
+  },
+];
 
-  useEffect(() => {
-    fetchPicks(niche);
-  }, [niche]);
+function ViralScoreBadge({ score }: { score: number }) {
+  let colorClass = "text-error border-error";
+  if (score >= 80) colorClass = "text-success border-success";
+  else if (score >= 50) colorClass = "text-warning border-warning";
+
+  return (
+    <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 bg-background font-bold ${colorClass}`}>
+      {score}%
+    </div>
+  );
+}
+
+export default async function FeedPage() {
+  const session = await auth();
+  
+  if (!session) {
+    redirect("/auth/signin");
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
-              Daily <span className="text-primary">Content</span> Feed
-            </h1>
-            <p className="mt-4 text-xl text-text-secondary">
-              AI-curated viral opportunities for your niche.
-            </p>
-          </div>
-
-          <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
-            {["All Niches", "Tech", "Business", "Lifestyle", "Comedy", "Finance"].map((n) => (
-              <button
-                key={n}
-                onClick={() => setNiche(n)}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap border ${
-                  niche === n 
-                    ? "bg-primary text-background border-primary" 
-                    : "bg-surface text-text-secondary border-white/5 hover:border-white/20"
-                }`}
-              >
-                {n}
-              </button>
-            ))}
-          </div>
+        <header className="mb-12">
+          <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+            Daily <span className="text-primary">Content</span> Feed
+          </h1>
+          <p className="mt-4 text-xl text-text-secondary">
+            AI-curated viral opportunities for your niche.
+          </p>
         </header>
 
-        {loading ? (
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="animate-pulse">
-                <div className="aspect-video bg-white/5 rounded-xl mb-4"></div>
-                <div className="h-6 bg-white/5 rounded w-3/4 mb-2"></div>
-                <div className="h-4 bg-white/5 rounded w-1/2"></div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {picks.length > 0 ? (
-              picks.map((pick) => (
-                <ContentCard
-                  key={pick.pick_id}
-                  id={pick.pick_id}
-                  title={pick.video.title}
-                  description={pick.video.description || "No description available."}
-                  viralScore={Math.round(pick.viral_probability)}
-                  platform={pick.video.platform}
-                  niche={pick.video.niche}
-                  thumbnail={pick.video.thumbnail_url}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {MOCK_PICKS.map((pick) => (
+            <div 
+              key={pick.id} 
+              className="group relative bg-surface overflow-hidden rounded-xl border border-white/5 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,209,255,0.15)]"
+            >
+              {/* Thumbnail Container */}
+              <div className="relative aspect-video overflow-hidden">
+                <img 
+                  src={pick.thumbnail} 
+                  alt={pick.title}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-              ))
-            ) : (
-              <div className="col-span-full text-center py-20 bg-surface rounded-2xl border border-dashed border-white/10">
-                <p className="text-text-secondary font-medium">No picks found for this niche.</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent"></div>
+                
+                {/* Viral Score Positioned in top-right */}
+                <div className="absolute top-3 right-3 shadow-lg">
+                  <ViralScoreBadge score={pick.viralScore} />
+                </div>
+
+                {/* Niche Tag */}
+                <div className="absolute bottom-3 left-3">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-white/10 text-white backdrop-blur-md border border-white/10 uppercase tracking-wider">
+                    {pick.niche}
+                  </span>
+                </div>
               </div>
-            )}
-          </div>
-        )}
+
+              {/* Content Details */}
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">
+                    {pick.platform}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold leading-tight text-white group-hover:text-primary transition-colors">
+                  {pick.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-text-secondary line-clamp-2">
+                  {pick.description}
+                </p>
+                
+                <div className="mt-6 flex items-center justify-between">
+                  <Link href={`/feed/${pick.id}`} className="flex-1 bg-white text-background font-black py-3 rounded-lg text-sm uppercase tracking-wider hover:bg-primary hover:text-white transition-all active:scale-95 text-center">
+                    Review & Post
+                  </Link>
+                  <button className="ml-3 p-3 text-white/50 hover:text-white transition-colors">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

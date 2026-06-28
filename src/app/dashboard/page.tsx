@@ -1,13 +1,6 @@
 import Link from "next/link";
-import { auth } from "@/lib/auth";
-import { redirect } from "next/navigation";
 
-export default async function DashboardPage() {
-  const session = await auth();
-  if (!session) {
-    redirect("/auth/signin");
-  }
-
+export default function DashboardPage() {
   const stats = [
     { name: "Active Plan", value: "Free Tier", detail: "3 picks left today", color: "text-primary", bg: "bg-primary/10", border: "border-primary/20" },
     { name: "Total Published", value: "12", detail: "Avg. 88% Viral Score", color: "text-success", bg: "bg-success/10", border: "border-success/20" },
