@@ -6,6 +6,7 @@ export default function PricingPage() {
       description: "Basic features for individuals.",
       features: ["3-5 daily picks", "Watermarked clips", "Basic niches"],
       buttonText: "Start for Free",
+      href: "/onboarding",
       active: false,
     },
     {
@@ -14,6 +15,7 @@ export default function PricingPage() {
       description: "More power for creators.",
       features: ["15 daily picks", "No watermark", "All niches", "Priority scanning"],
       buttonText: "Upgrade to Pro",
+      href: "https://buy.stripe.com/4gM8wPaG2awLeaR3DF7g407",
       active: true,
     },
     {
@@ -21,7 +23,8 @@ export default function PricingPage() {
       price: "$79",
       description: "Advanced tools for small teams.",
       features: ["Unlimited picks", "No watermark", "Analytics", "Auto-posting", "Multiple accounts"],
-      buttonText: "Contact Sales",
+      buttonText: "Get Started",
+      href: "https://buy.stripe.com/28EaEX01o20fgiZ7TV7g408",
       active: false,
     },
   ];
@@ -68,7 +71,8 @@ export default function PricingPage() {
                 ))}
               </ul>
               
-              <button
+              <a
+                href={tier.href}
                 className={`mt-10 block w-full rounded-xl py-4 text-center text-sm font-black uppercase tracking-widest transition-all ${
                   tier.active
                     ? "bg-primary text-background hover:opacity-90 shadow-lg shadow-primary/20"
@@ -76,7 +80,7 @@ export default function PricingPage() {
                 }`}
               >
                 {tier.buttonText}
-              </button>
+              </a>
             </div>
           ))}
         </div>

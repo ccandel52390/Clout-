@@ -1,22 +1,15 @@
-// This is a placeholder for Stripe integration.
-// In a real app, you'd use the 'stripe' package.
+import Stripe from "stripe";
+import { loadStripe } from "@stripe/stripe-js";
 
-export const stripe = {
-  subscriptions: {
-    create: async (data: any) => {
-      console.log("Mock Stripe: Creating subscription", data);
-      return { id: `sub_${Math.random().toString(36).substring(7)}`, status: "active" };
-    },
-  },
-  checkout: {
-    sessions: {
-      create: async (data: any) => {
-        console.log("Mock Stripe: Creating checkout session", data);
-        return { url: "/dashboard?stripe=success" };
-      },
-    },
-  },
-};
+export const NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "pk_test_viralforge_placeholder";
+
+// Client-side Stripe loader
+export const getStripe = () => loadStripe(NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
+// Server-side Stripe instance
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_placeholder", {
+  apiVersion: "2025-01-27.acacia" as any,
+});
 
 export const formatAmountForStripe = (amount: number, currency: string) => {
   let numberFormat = new Intl.NumberFormat(["en-US"], {
