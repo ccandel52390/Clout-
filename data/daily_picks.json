@@ -1,0 +1,701 @@
+[
+  {
+    "pick_id": "pick_sim_3_0_hook",
+    "video": {
+      "video_id": "sim_3",
+      "title": "The SECRET to Going Viral on TikTok",
+      "channel": "BusinessInsider",
+      "platform": "youtube",
+      "duration_sec": 600,
+      "view_count": 1501701,
+      "like_count": 89340,
+      "comment_count": 12604,
+      "published_at": "2026-06-25T01:48:27.406776Z",
+      "niche": "tech",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_3/hqdefault.jpg",
+      "description": "This is a simulated description for: The SECRET to Going Viral on TikTok",
+      "tags": [
+        "tech",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 0,
+      "end_sec": 30,
+      "duration_sec": 30,
+      "clip_type": "hook",
+      "confidence": 0.85,
+      "text_transcript": "",
+      "reasoning": "Detected hook pattern in title: 'The SECRET to Going Viral on TikTok'"
+    },
+    "post": {
+      "source_video_id": "sim_3",
+      "niche": "tech",
+      "captions": [
+        "This TikTok changes EVERYTHING \ud83d\ude80",
+        "This TikTok changes EVERYTHING \ud83d\ude80",
+        "I tested TikTok so you don't have to"
+      ],
+      "hashtags": [
+        "#tech",
+        "#future",
+        "#ai",
+        "#programming",
+        "#technology",
+        "#tech",
+        "#innovation"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'tech' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 84.2,
+      "breakdown": {
+        "hook_strength": 85.0,
+        "engagement_rate": 100,
+        "niche_trending": 80,
+        "platform_fit": 70.0,
+        "timeliness": 97.0,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'hook' in niche 'tech' \u2014 hook strength 85, engagement 100"
+    },
+    "viral_probability": 84.2
+  },
+  {
+    "pick_id": "pick_sim_3_300.0_peak_moment",
+    "video": {
+      "video_id": "sim_3",
+      "title": "The SECRET to Going Viral on TikTok",
+      "channel": "BusinessInsider",
+      "platform": "youtube",
+      "duration_sec": 600,
+      "view_count": 1501701,
+      "like_count": 89340,
+      "comment_count": 12604,
+      "published_at": "2026-06-25T01:48:27.406776Z",
+      "niche": "tech",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_3/hqdefault.jpg",
+      "description": "This is a simulated description for: The SECRET to Going Viral on TikTok",
+      "tags": [
+        "tech",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 300.0,
+      "end_sec": 345.0,
+      "duration_sec": 45.0,
+      "clip_type": "peak_moment",
+      "confidence": 0.7,
+      "text_transcript": "",
+      "reasoning": "Mid-video peak segment (high engagement signal: 89,340 likes)"
+    },
+    "post": {
+      "source_video_id": "sim_3",
+      "niche": "tech",
+      "captions": [
+        "This TikTok changes EVERYTHING \ud83d\ude80",
+        "The tech explained in 60 seconds",
+        "I tested TikTok so you don't have to"
+      ],
+      "hashtags": [
+        "#tech",
+        "#ai",
+        "#programming",
+        "#future",
+        "#innovation",
+        "#tech",
+        "#technology"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'tech' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 79.7,
+      "breakdown": {
+        "hook_strength": 70.0,
+        "engagement_rate": 100,
+        "niche_trending": 80,
+        "platform_fit": 70.0,
+        "timeliness": 97.0,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'peak_moment' in niche 'tech' \u2014 hook strength 70, engagement 100"
+    },
+    "viral_probability": 79.7
+  },
+  {
+    "pick_id": "pick_sim_0_0_hook",
+    "video": {
+      "video_id": "sim_0",
+      "title": "The TRUTH about AI in 2025 (you won't believe)",
+      "channel": "AIExplained",
+      "platform": "youtube",
+      "duration_sec": 900,
+      "view_count": 4426296,
+      "like_count": 348671,
+      "comment_count": 24922,
+      "published_at": "2026-06-22T05:48:27.406776Z",
+      "niche": "tech",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_0/hqdefault.jpg",
+      "description": "This is a simulated description for: The TRUTH about AI in 2025 (you won't believe)",
+      "tags": [
+        "tech",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 0,
+      "end_sec": 30,
+      "duration_sec": 30,
+      "clip_type": "hook",
+      "confidence": 0.85,
+      "text_transcript": "",
+      "reasoning": "Detected hook pattern in title: 'The TRUTH about AI in 2025 (you won't believe)'"
+    },
+    "post": {
+      "source_video_id": "sim_0",
+      "niche": "tech",
+      "captions": [
+        "This believe) changes EVERYTHING \ud83d\ude80",
+        "This believe) changes EVERYTHING \ud83d\ude80",
+        "Why everyone is switching to believe)"
+      ],
+      "hashtags": [
+        "#tech",
+        "#ai",
+        "#future",
+        "#tech",
+        "#technology",
+        "#programming",
+        "#innovation"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'tech' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 75.8,
+      "breakdown": {
+        "hook_strength": 85.0,
+        "engagement_rate": 100,
+        "niche_trending": 80,
+        "platform_fit": 70.0,
+        "timeliness": 12.6,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'hook' in niche 'tech' \u2014 hook strength 85, engagement 100"
+    },
+    "viral_probability": 75.8
+  },
+  {
+    "pick_id": "pick_sim_0_0_hook",
+    "video": {
+      "video_id": "sim_0",
+      "title": "This NEW App Changed EVERYTHING",
+      "channel": "LifeHacker",
+      "platform": "youtube",
+      "duration_sec": 600,
+      "view_count": 4081475,
+      "like_count": 288866,
+      "comment_count": 20126,
+      "published_at": "2026-06-24T13:48:27.409244Z",
+      "niche": "lifestyle",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_0/hqdefault.jpg",
+      "description": "This is a simulated description for: This NEW App Changed EVERYTHING",
+      "tags": [
+        "lifestyle",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 0,
+      "end_sec": 30,
+      "duration_sec": 30,
+      "clip_type": "hook",
+      "confidence": 0.85,
+      "text_transcript": "",
+      "reasoning": "Detected hook pattern in title: 'This NEW App Changed EVERYTHING'"
+    },
+    "post": {
+      "source_video_id": "sim_0",
+      "niche": "lifestyle",
+      "captions": [
+        "This changes everything \ud83e\udd2f",
+        "Tag someone who needs to see this \ud83d\udc47",
+        "The lifestyle trend you NEED to see today"
+      ],
+      "hashtags": [
+        "#trending",
+        "#viralvideo",
+        "#foryou",
+        "#viral",
+        "#lifestyle",
+        "#fyp"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'lifestyle' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels",
+        "twitter"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 75.3,
+      "breakdown": {
+        "hook_strength": 85.0,
+        "engagement_rate": 100,
+        "niche_trending": 50,
+        "platform_fit": 70.0,
+        "timeliness": 67.7,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'hook' in niche 'lifestyle' \u2014 hook strength 85, engagement 100"
+    },
+    "viral_probability": 75.3
+  },
+  {
+    "pick_id": "pick_sim_6_0_hook",
+    "video": {
+      "video_id": "sim_6",
+      "title": "The SECRET to Going Viral on TikTok",
+      "channel": "CreatorHub",
+      "platform": "youtube",
+      "duration_sec": 300,
+      "view_count": 304602,
+      "like_count": 17258,
+      "comment_count": 2234,
+      "published_at": "2026-06-21T11:48:27.406776Z",
+      "niche": "tech",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_6/hqdefault.jpg",
+      "description": "This is a simulated description for: The SECRET to Going Viral on TikTok",
+      "tags": [
+        "tech",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 0,
+      "end_sec": 30,
+      "duration_sec": 30,
+      "clip_type": "hook",
+      "confidence": 0.85,
+      "text_transcript": "",
+      "reasoning": "Detected hook pattern in title: 'The SECRET to Going Viral on TikTok'"
+    },
+    "post": {
+      "source_video_id": "sim_6",
+      "niche": "tech",
+      "captions": [
+        "I tested TikTok so you don't have to",
+        "I tested TikTok so you don't have to",
+        "The tech explained in 60 seconds"
+      ],
+      "hashtags": [
+        "#programming",
+        "#future",
+        "#ai",
+        "#innovation",
+        "#technology",
+        "#tech",
+        "#tech"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'tech' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels",
+        "twitter"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 75.2,
+      "breakdown": {
+        "hook_strength": 85.0,
+        "engagement_rate": 100,
+        "niche_trending": 80,
+        "platform_fit": 70.0,
+        "timeliness": 7.4,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'hook' in niche 'tech' \u2014 hook strength 85, engagement 100"
+    },
+    "viral_probability": 75.2
+  },
+  {
+    "pick_id": "pick_sim_9_900.0_peak_moment",
+    "video": {
+      "video_id": "sim_9",
+      "title": "How I Made $10k in One Week (Full Guide)",
+      "channel": "AIExplained",
+      "platform": "youtube",
+      "duration_sec": 1800,
+      "view_count": 3706144,
+      "like_count": 235776,
+      "comment_count": 12720,
+      "published_at": "2026-06-24T06:48:27.406776Z",
+      "niche": "tech",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_9/hqdefault.jpg",
+      "description": "This is a simulated description for: How I Made $10k in One Week (Full Guide)",
+      "tags": [
+        "tech",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 900.0,
+      "end_sec": 945.0,
+      "duration_sec": 45.0,
+      "clip_type": "peak_moment",
+      "confidence": 0.7,
+      "text_transcript": "",
+      "reasoning": "Mid-video peak segment (high engagement signal: 235,776 likes)"
+    },
+    "post": {
+      "source_video_id": "sim_9",
+      "niche": "tech",
+      "captions": [
+        "The tech explained in 60 seconds",
+        "The tech explained in 60 seconds",
+        "The tech explained in 60 seconds"
+      ],
+      "hashtags": [
+        "#ai",
+        "#tech",
+        "#innovation",
+        "#future",
+        "#technology",
+        "#programming",
+        "#tech"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'tech' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 75.1,
+      "breakdown": {
+        "hook_strength": 70.0,
+        "engagement_rate": 97.9,
+        "niche_trending": 80,
+        "platform_fit": 70.0,
+        "timeliness": 54.9,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'peak_moment' in niche 'tech' \u2014 hook strength 70, engagement 98"
+    },
+    "viral_probability": 75.1
+  },
+  {
+    "pick_id": "pick_sim_5_0_hook",
+    "video": {
+      "video_id": "sim_5",
+      "title": "The TRUTH about AI in 2025 (you won't believe)",
+      "channel": "DailyVlog",
+      "platform": "youtube",
+      "duration_sec": 1800,
+      "view_count": 1270842,
+      "like_count": 92655,
+      "comment_count": 6789,
+      "published_at": "2026-06-20T02:48:27.406776Z",
+      "niche": "tech",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_5/hqdefault.jpg",
+      "description": "This is a simulated description for: The TRUTH about AI in 2025 (you won't believe)",
+      "tags": [
+        "tech",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 0,
+      "end_sec": 30,
+      "duration_sec": 30,
+      "clip_type": "hook",
+      "confidence": 0.85,
+      "text_transcript": "",
+      "reasoning": "Detected hook pattern in title: 'The TRUTH about AI in 2025 (you won't believe)'"
+    },
+    "post": {
+      "source_video_id": "sim_5",
+      "niche": "tech",
+      "captions": [
+        "Why everyone is switching to believe)",
+        "This believe) changes EVERYTHING \ud83d\ude80",
+        "I tested believe) so you don't have to"
+      ],
+      "hashtags": [
+        "#programming",
+        "#innovation",
+        "#ai",
+        "#tech",
+        "#future",
+        "#technology",
+        "#tech"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'tech' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 74.8,
+      "breakdown": {
+        "hook_strength": 85.0,
+        "engagement_rate": 100,
+        "niche_trending": 80,
+        "platform_fit": 70.0,
+        "timeliness": 2.7,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'hook' in niche 'tech' \u2014 hook strength 85, engagement 100"
+    },
+    "viral_probability": 74.8
+  },
+  {
+    "pick_id": "pick_sim_7_0_hook",
+    "video": {
+      "video_id": "sim_7",
+      "title": "This NEW App Changed EVERYTHING",
+      "channel": "DailyVlog",
+      "platform": "youtube",
+      "duration_sec": 1800,
+      "view_count": 2640965,
+      "like_count": 193252,
+      "comment_count": 22142,
+      "published_at": "2026-06-18T06:48:27.406776Z",
+      "niche": "tech",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_7/hqdefault.jpg",
+      "description": "This is a simulated description for: This NEW App Changed EVERYTHING",
+      "tags": [
+        "tech",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 0,
+      "end_sec": 30,
+      "duration_sec": 30,
+      "clip_type": "hook",
+      "confidence": 0.85,
+      "text_transcript": "",
+      "reasoning": "Detected hook pattern in title: 'This NEW App Changed EVERYTHING'"
+    },
+    "post": {
+      "source_video_id": "sim_7",
+      "niche": "tech",
+      "captions": [
+        "This EVERYTHING changes EVERYTHING \ud83d\ude80",
+        "The tech explained in 60 seconds",
+        "The tech explained in 60 seconds"
+      ],
+      "hashtags": [
+        "#programming",
+        "#innovation",
+        "#technology",
+        "#future",
+        "#tech",
+        "#ai",
+        "#tech"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'tech' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 74.6,
+      "breakdown": {
+        "hook_strength": 85.0,
+        "engagement_rate": 100,
+        "niche_trending": 80,
+        "platform_fit": 70.0,
+        "timeliness": 0.7,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'hook' in niche 'tech' \u2014 hook strength 85, engagement 100"
+    },
+    "viral_probability": 74.6
+  },
+  {
+    "pick_id": "pick_sim_8_0_hook",
+    "video": {
+      "video_id": "sim_8",
+      "title": "The TRUTH about AI in 2025 (you won't believe)",
+      "channel": "GamingPro",
+      "platform": "youtube",
+      "duration_sec": 1200,
+      "view_count": 4340866,
+      "like_count": 343748,
+      "comment_count": 37958,
+      "published_at": "2026-06-24T06:48:27.408118Z",
+      "niche": "business",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_8/hqdefault.jpg",
+      "description": "This is a simulated description for: The TRUTH about AI in 2025 (you won't believe)",
+      "tags": [
+        "business",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 0,
+      "end_sec": 30,
+      "duration_sec": 30,
+      "clip_type": "hook",
+      "confidence": 0.85,
+      "text_transcript": "",
+      "reasoning": "Detected hook pattern in title: 'The TRUTH about AI in 2025 (you won't believe)'"
+    },
+    "post": {
+      "source_video_id": "sim_8",
+      "niche": "business",
+      "captions": [
+        "This changes everything \ud83e\udd2f",
+        "Wait for it... \ud83d\udd25",
+        "Tag someone who needs to see this \ud83d\udc47"
+      ],
+      "hashtags": [
+        "#trending",
+        "#fyp",
+        "#viral",
+        "#business",
+        "#foryou",
+        "#viralvideo"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'business' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels",
+        "twitter"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 74.0,
+      "breakdown": {
+        "hook_strength": 85.0,
+        "engagement_rate": 100,
+        "niche_trending": 50,
+        "platform_fit": 70.0,
+        "timeliness": 54.9,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'hook' in niche 'business' \u2014 hook strength 85, engagement 100"
+    },
+    "viral_probability": 74.0
+  },
+  {
+    "pick_id": "pick_sim_3_570_cta",
+    "video": {
+      "video_id": "sim_3",
+      "title": "The SECRET to Going Viral on TikTok",
+      "channel": "BusinessInsider",
+      "platform": "youtube",
+      "duration_sec": 600,
+      "view_count": 1501701,
+      "like_count": 89340,
+      "comment_count": 12604,
+      "published_at": "2026-06-25T01:48:27.406776Z",
+      "niche": "tech",
+      "thumbnail_url": "https://i.ytimg.com/vi/sim_3/hqdefault.jpg",
+      "description": "This is a simulated description for: The SECRET to Going Viral on TikTok",
+      "tags": [
+        "tech",
+        "viral",
+        "trending"
+      ]
+    },
+    "clip": {
+      "video_id": "",
+      "start_sec": 570,
+      "end_sec": 600,
+      "duration_sec": 30,
+      "clip_type": "cta",
+      "confidence": 0.5,
+      "text_transcript": "",
+      "reasoning": "End-of-video call-to-action segment"
+    },
+    "post": {
+      "source_video_id": "sim_3",
+      "niche": "tech",
+      "captions": [
+        "The tech explained in 60 seconds",
+        "Why everyone is switching to TikTok",
+        "Why everyone is switching to TikTok"
+      ],
+      "hashtags": [
+        "#programming",
+        "#tech",
+        "#innovation",
+        "#future",
+        "#technology",
+        "#tech",
+        "#ai"
+      ],
+      "thumbnail_concept": "Bold text overlay on screenshot from video with 'tech' theme",
+      "platform_recommendations": [
+        "tiktok",
+        "youtube_shorts",
+        "instagram_reels"
+      ],
+      "post_type": "clip"
+    },
+    "score": {
+      "overall_score": 73.7,
+      "breakdown": {
+        "hook_strength": 50.0,
+        "engagement_rate": 100,
+        "niche_trending": 80,
+        "platform_fit": 70.0,
+        "timeliness": 97.0,
+        "seasonality": 50.0
+      },
+      "reasoning": "Clip type 'cta' in niche 'tech' \u2014 hook strength 50, engagement 100"
+    },
+    "viral_probability": 73.7
+  }
+]

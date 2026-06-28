@@ -1,59 +1,85 @@
+import Link from "next/link";
 import Image from "next/image";
 
 interface ContentCardProps {
+  id: string;
   title: string;
-  niche: string;
+  description: string;
   viralScore: number;
+  niche: string;
   platform: string;
-  thumbnail?: string;
-  type: string;
+  thumbnail: string;
 }
 
-export default function ContentCard({ title, niche, viralScore, platform, thumbnail, type }: ContentCardProps) {
-  const getScoreColor = (score: number) => {
-    if (score >= 80) return "text-viral-high border-viral-high/20 bg-viral-high/10";
-    if (score >= 50) return "text-viral-medium border-viral-medium/20 bg-viral-medium/10";
-    return "text-viral-low border-viral-low/20 bg-viral-low/10";
-  };
+function ViralScoreBadge({ score }: { score: number }) {
+  let colorClass = "text-error border-error";
+  if (score >= 80) colorClass = "text-success border-success";
+  else if (score >= 50) colorClass = "text-warning border-warning";
 
   return (
-    <div className="card group border border-white/5 hover:border-primary/30 transition-all duration-300">
-      <div className="relative aspect-video mb-4 overflow-hidden rounded-lg bg-white/5">
-        {thumbnail ? (
-          <Image src={thumbnail} alt={title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-white/10 italic">
-            No Preview
-          </div>
-        )}
-        <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-bold border ${getScoreColor(viralScore)}`}>
-          {viralScore}% Viral
+    <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 bg-background font-bold ${colorClass}`}>
+      {score}%
+    </div>
+  );
+}
+
+export default function ContentCard({ 
+  id, 
+  title, 
+  description, 
+  viralScore, 
+  niche, 
+  platform, 
+  thumbnail 
+}: ContentCardProps) {
+  return (
+    <div className="group relative bg-surface overflow-hidden rounded-xl border border-white/5 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,209,255,0.15)] flex flex-col h-full">
+      {/* Thumbnail Container */}
+      <div className="relative aspect-video overflow-hidden">
+        <img 
+          src={thumbnail} 
+          alt={title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent"></div>
+        
+        {/* Viral Score Positioned in top-right */}
+        <div className="absolute top-3 right-3 shadow-lg">
+          <ViralScoreBadge score={viralScore} />
+        </div>
+
+        {/* Niche Tag */}
+        <div className="absolute bottom-3 left-3">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-white/10 text-white backdrop-blur-md border border-white/10 uppercase tracking-wider">
+            {niche}
+          </span>
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-3">
-        <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">
-          {niche}
-        </span>
-        <span className="px-2 py-0.5 rounded-full bg-white/5 text-secondary text-[10px] font-bold uppercase tracking-wider">
-          {platform}
-        </span>
-        <span className="px-2 py-0.5 rounded-full bg-white/5 text-secondary text-[10px] font-bold uppercase tracking-wider">
-          {type}
-        </span>
-      </div>
-
-      <h3 className="text-lg font-semibold line-clamp-2 mb-4 group-hover:text-primary transition-colors">
-        {title}
-      </h3>
-
-      <div className="flex items-center justify-between mt-auto">
-        <button className="text-sm font-bold text-secondary hover:text-white transition-colors">
-          View Detail
-        </button>
-        <button className="btn-primary py-1.5 px-4 text-sm">
-          Post Now
-        </button>
+      {/* Content Details */}
+      <div className="p-6 flex flex-col flex-1">
+        <div className="flex justify-between items-center mb-3">
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">
+            {platform}
+          </span>
+        </div>
+        <h3 className="text-xl font-bold leading-tight text-white group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed text-text-secondary line-clamp-2">
+          {description}
+        </p>
+        
+        <div className="mt-auto pt-6 flex items-center justify-between">
+          <Link href={`/feed/${id}`} className="flex-1 bg-white text-background font-black py-3 rounded-lg text-sm uppercase tracking-wider hover:bg-primary hover:text-white transition-all active:scale-95 text-center">
+            Review & Post
+          </Link>
+          <button className="ml-3 p-3 text-white/50 hover:text-white transition-colors">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );

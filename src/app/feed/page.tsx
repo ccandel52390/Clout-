@@ -1,86 +1,98 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { auth } from "@/lib/auth";
 import ContentCard from "@/components/ContentCard";
 
-// Mock data based on DATA_CONTRACT.md
-const mockPicks = [
-  {
-    pick_id: "pick_vid_001_0_hook",
-    video: {
-      title: "The TRUTH about AI in 2025",
-      platform: "YouTube",
-      niche: "tech",
-    },
-    clip: {
-      clip_type: "hook",
-    },
-    viral_probability: 85,
-  },
-  {
-    pick_id: "pick_vid_002_1_peak",
-    video: {
-      title: "How to scale your business to $1M",
-      platform: "YouTube",
-      niche: "business",
-    },
-    clip: {
-      clip_type: "peak_moment",
-    },
-    viral_probability: 72,
-  },
-  {
-    pick_id: "pick_vid_003_0_hook",
-    video: {
-      title: "10 Minimalist Habits for 2025",
-      platform: "YouTube",
-      niche: "lifestyle",
-    },
-    clip: {
-      clip_type: "hook",
-    },
-    viral_probability: 91,
-  },
-  {
-    pick_id: "pick_vid_004_2_cta",
-    video: {
-      title: "The only workout you need",
-      platform: "YouTube",
-      niche: "fitness",
-    },
-    clip: {
-      clip_type: "cta",
-    },
-    viral_probability: 45,
-  },
-];
-
 export default function FeedPage() {
-  return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-4">
-        <div>
-          <h1 className="text-4xl font-black mb-2 tracking-tight">DAILY FEED</h1>
-          <p className="text-secondary font-medium">Hand-picked viral content for your channels.</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <select className="bg-surface border border-white/10 rounded-lg px-4 py-2 text-sm font-semibold focus:outline-none focus:border-primary">
-            <option>All Niches</option>
-            <option>Tech</option>
-            <option>Business</option>
-            <option>Lifestyle</option>
-          </select>
-        </div>
-      </div>
+  const [picks, setPicks] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [niche, setNiche] = useState("All Niches");
 
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {mockPicks.map((pick) => (
-          <ContentCard
-            key={pick.pick_id}
-            title={pick.video.title}
-            niche={pick.video.niche}
-            viralScore={pick.viral_probability}
-            platform={pick.video.platform}
-            type={pick.clip.clip_type}
-          />
-        ))}
+  const fetchPicks = async (currentNiche: string) => {
+    setLoading(true);
+    try {
+      const url = currentNiche === "All Niches" 
+        ? "/api/v1/picks" 
+        : `/api/v1/picks?niche=${currentNiche}`;
+      const res = await fetch(url);
+      const json = await res.json();
+      if (json.status === "ok") {
+        setPicks(json.data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch picks", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchPicks(niche);
+  }, [niche]);
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+              Daily <span className="text-primary">Content</span> Feed
+            </h1>
+            <p className="mt-4 text-xl text-text-secondary">
+              AI-curated viral opportunities for your niche.
+            </p>
+          </div>
+
+          <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+            {["All Niches", "Tech", "Business", "Lifestyle", "Comedy", "Finance"].map((n) => (
+              <button
+                key={n}
+                onClick={() => setNiche(n)}
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap border ${
+                  niche === n 
+                    ? "bg-primary text-background border-primary" 
+                    : "bg-surface text-text-secondary border-white/5 hover:border-white/20"
+                }`}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+        </header>
+
+        {loading ? (
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="animate-pulse">
+                <div className="aspect-video bg-white/5 rounded-xl mb-4"></div>
+                <div className="h-6 bg-white/5 rounded w-3/4 mb-2"></div>
+                <div className="h-4 bg-white/5 rounded w-1/2"></div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {picks.length > 0 ? (
+              picks.map((pick) => (
+                <ContentCard
+                  key={pick.pick_id}
+                  id={pick.pick_id}
+                  title={pick.video.title}
+                  description={pick.video.description || "No description available."}
+                  viralScore={Math.round(pick.viral_probability)}
+                  platform={pick.video.platform}
+                  niche={pick.video.niche}
+                  thumbnail={pick.video.thumbnail_url}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-20 bg-surface rounded-2xl border border-dashed border-white/10">
+                <p className="text-text-secondary font-medium">No picks found for this niche.</p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
