@@ -18,15 +18,16 @@ export async function GET() {
     const [avgScoreRes] = await db.select({ value: avg(contentItems.viralScore) }).from(contentItems);
     
     // 3. Picks published
-    const [totalPicksRes] = await db.select({ value: count() }).from(userPicks);
+    const [publishedRes] = await db.select({ value: count() })
+      .from(userPicks)
+      .where(eq(userPicks.status, "published"));
 
-    // 4. Picks by niche
+    // 4. Items per niche
     const nicheStats = await db.select({
       name: niches.name,
-      count: count()
+      count: count(contentItems.id)
     })
-    .from(userPicks)
-    .innerJoin(contentItems, eq(userPicks.contentItemId, contentItems.id))
+    .from(contentItems)
     .innerJoin(niches, eq(contentItems.nicheId, niches.id))
     .groupBy(niches.name);
 
@@ -55,7 +56,7 @@ export async function GET() {
         summary: [
           { name: "Total Content", value: totalItemsRes.value, unit: "items" },
           { name: "Avg. Viral Score", value: Math.round(Number(avgScoreRes.value || 0)), unit: "%" },
-          { name: "Total Picks", value: totalPicksRes.value, unit: "picks" }
+          { name: "Published", value: publishedRes.value, unit: "posts" }
         ],
         nicheStats,
         picksTrend,

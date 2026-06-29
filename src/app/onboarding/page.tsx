@@ -5,14 +5,23 @@ import { useRouter } from "next/navigation";
 const NICHES = [
   { id: "tech", name: "Technology", description: "AI, gadgets, software, and future tech.", icon: "🚀" },
   { id: "finance", name: "Finance", description: "Investing, crypto, and personal finance.", icon: "💰" },
-  { id: "fitness", name: "Health & Fitness", description: "Workout tips, nutrition, and mental health.", icon: "💪" },
+  { id: "health", name: "Health", description: "Wellness, medicine, and healthy habits.", icon: "🏥" },
+  { id: "fitness", name: "Fitness", description: "Workout tips and nutrition.", icon: "💪" },
   { id: "business", name: "Business", description: "Entrepreneurship, marketing, and startups.", icon: "📈" },
-  { id: "lifestyle", name: "Lifestyle", description: "Travel, fashion, and home decor.", icon: "✨" },
+  { id: "lifestyle", name: "Lifestyle", description: "Home decor, fashion, and habits.", icon: "✨" },
   { id: "gaming", name: "Gaming", description: "Latest games, e-sports, and streaming.", icon: "🎮" },
   { id: "comedy", name: "Comedy", description: "Jokes, memes, and funny sketches.", icon: "😂" },
   { id: "education", name: "Education", description: "Learning, skills, and interesting facts.", icon: "📚" },
   { id: "travel", name: "Travel", description: "Adventure, destinations, and culture.", icon: "✈️" },
-  { id: "food", name: "Food & Cooking", description: "Recipes, restaurants, and food hacks.", icon: "🍳" },
+  { id: "food", name: "Food", description: "Recipes, restaurants, and food hacks.", icon: "🍳" },
+  { id: "sports", name: "Sports", description: "Live action, highlights, and analysis.", icon: "⚽" },
+  { id: "news", name: "News", description: "Current events and breaking news.", icon: "📰" },
+  { id: "music", name: "Music", description: "Trends, performances, and theory.", icon: "🎵" },
+  { id: "art", name: "Art", description: "Creative process and gallery highlights.", icon: "🎨" },
+  { id: "science", name: "Science", description: "Discovery and explanation.", icon: "🧪" },
+  { id: "diy", name: "DIY", description: "Do-it-yourself and craftsmanship.", icon: "🛠️" },
+  { id: "fashion", name: "Fashion", description: "Style and trends.", icon: "👗" },
+  { id: "politics", name: "Politics", description: "Analysis and debate.", icon: "⚖️" },
 ];
 
 export default function OnboardingPage() {
@@ -42,7 +51,7 @@ export default function OnboardingPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {NICHES.map((niche) => (
             <div
               key={niche.id}
@@ -63,10 +72,10 @@ export default function OnboardingPage() {
                   </div>
                 )}
               </div>
-              <h3 className={`text-xl font-bold ${selected.includes(niche.id) ? "text-primary" : "text-white"}`}>
+              <h3 className={`text-lg font-bold ${selected.includes(niche.id) ? "text-primary" : "text-white"}`}>
                 {niche.name}
               </h3>
-              <p className="mt-2 text-sm text-text-secondary">{niche.description}</p>
+              <p className="mt-2 text-xs text-text-secondary">{niche.description}</p>
             </div>
           ))}
         </div>
