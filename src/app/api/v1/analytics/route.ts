@@ -17,21 +17,16 @@ export async function GET() {
     // 2. Average viral score
     const [avgScoreRes] = await db.select({ value: avg(contentItems.viralScore) }).from(contentItems);
     
-    // 3. Picks published (total across all users for global stats, or filter by user?)
-    // Task says "Query clout_user_pick for picks published", usually dashboard is user-specific.
-    // But "daily active users" sounds like an admin/global stat.
-    // Let's get user-specific picks published for the top stats, and global for admin-like view if needed.
-    // For now, let's stick to user-specific for the top cards.
-    const [userPublishedRes] = await db.select({ value: count() })
-      .from(userPicks)
-      .where(eq(userPicks.userId, session.user?.id as string));
+    // 3. Picks published
+    const [totalPicksRes] = await db.select({ value: count() }).from(userPicks);
 
-    // 4. Items by niche
+    // 4. Picks by niche
     const nicheStats = await db.select({
       name: niches.name,
-      count: count(contentItems.id)
+      count: count()
     })
-    .from(contentItems)
+    .from(userPicks)
+    .innerJoin(contentItems, eq(userPicks.contentItemId, contentItems.id))
     .innerJoin(niches, eq(contentItems.nicheId, niches.id))
     .groupBy(niches.name);
 
@@ -47,7 +42,6 @@ export async function GET() {
     .orderBy(sql`DATE(createdAt / 1000, 'unixepoch')`);
 
     // 6. Platform breakdown
-    // Extract platform from metadata JSON
     const platformStats = await db.select({
       platform: sql<string>`json_extract(metadata, '$.platform')`,
       count: count()
@@ -61,7 +55,7 @@ export async function GET() {
         summary: [
           { name: "Total Content", value: totalItemsRes.value, unit: "items" },
           { name: "Avg. Viral Score", value: Math.round(Number(avgScoreRes.value || 0)), unit: "%" },
-          { name: "My Published", value: userPublishedRes.value, unit: "posts" }
+          { name: "Total Picks", value: totalPicksRes.value, unit: "picks" }
         ],
         nicheStats,
         picksTrend,
