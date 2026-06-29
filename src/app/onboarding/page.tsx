@@ -5,10 +5,14 @@ import { useRouter } from "next/navigation";
 const NICHES = [
   { id: "tech", name: "Technology", description: "AI, gadgets, software, and future tech.", icon: "🚀" },
   { id: "finance", name: "Finance", description: "Investing, crypto, and personal finance.", icon: "💰" },
-  { id: "health", name: "Health & Fitness", description: "Workout tips, nutrition, and mental health.", icon: "💪" },
+  { id: "fitness", name: "Health & Fitness", description: "Workout tips, nutrition, and mental health.", icon: "💪" },
   { id: "business", name: "Business", description: "Entrepreneurship, marketing, and startups.", icon: "📈" },
   { id: "lifestyle", name: "Lifestyle", description: "Travel, fashion, and home decor.", icon: "✨" },
   { id: "gaming", name: "Gaming", description: "Latest games, e-sports, and streaming.", icon: "🎮" },
+  { id: "comedy", name: "Comedy", description: "Jokes, memes, and funny sketches.", icon: "😂" },
+  { id: "education", name: "Education", description: "Learning, skills, and interesting facts.", icon: "📚" },
+  { id: "travel", name: "Travel", description: "Adventure, destinations, and culture.", icon: "✈️" },
+  { id: "food", name: "Food & Cooking", description: "Recipes, restaurants, and food hacks.", icon: "🍳" },
 ];
 
 export default function OnboardingPage() {

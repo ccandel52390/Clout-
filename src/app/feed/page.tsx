@@ -43,7 +43,7 @@ export default function FeedPage() {
             </p>
           </div>
           <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
-            {["All Niches", "Tech", "Gaming", "Comedy"].map((n) => (
+            {["All Niches", "Tech", "Gaming", "Comedy", "Business", "Lifestyle", "Finance", "Fitness", "Education", "Travel", "Food"].map((n) => (
               <button
                 key={n}
                 onClick={() => setNiche(n)}
